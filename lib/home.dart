@@ -151,67 +151,86 @@ class Homepage extends StatelessWidget {
                 ),
               ),
               Row(
-                children: [
-                        Card(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 20, right: 30),
-                            width: 16.w,
-                            child: InkWell(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return Startpage();
-                                    },
-                                  ));
-                                },
-                                child: ImageIcon(
-                                  AssetImage('assets/img.png'),
-                                  size: 19,
-                                )),
-                          ),),
+                children: [Card(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 20, right: 30),
+                    width: 16.w,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) {
+                              return Startpage();
+                            },
+                          ));
+                        },
+                        child: ImageIcon(
+                          AssetImage('assets/img.png'),
+                          size: 19,
+                        )),
+                  ),),
 
-                        Card(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 20, right: 30),
-                            width: 16.w,
-                            child: InkWell(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return Startpage();
-                                    },
-                                  ));
-                                },
-                                child: ImageIcon(AssetImage('assets/pubg.png'))),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 20, right: 30),
-                          width: 16.w,
-                          child: InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) {
-                                    return Startpage();
-                                  },
-                                ));
+                  Card(
+                    child: Container(
+                      margin: EdgeInsets.only(left: 20, right: 30),
+                      width: 16.w,
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) {
+                                return Startpage();
                               },
-                              child: ImageIcon(AssetImage('assets/pubg.png'))),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 20, right: 30),
-                          width: 16.w,
-                          child: InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) {
-                                    return Startpage();
-                                  },
-                                ));
+                            ));
+                          },
+                          child: ImageIcon(AssetImage('assets/pubg.png'))),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 30),
+                    width: 16.w,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) {
+                              return Startpage();
+                            },
+                          ));
+                        },
+                        child: ImageIcon(AssetImage('assets/pubg.png'))),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 30),
+                    width: 16.w,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) {
+                              return Startpage();
+                            },
+                          ));
+                        },
+                        child: ImageIcon(AssetImage('assets/pubg.png'))),
+                  ),Card(
+                    child: Container(
+                      margin: EdgeInsets.only(left: 20, right: 30),
+                      width: 16.w,
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) {
+                                return Startpage();
                               },
-                              child: ImageIcon(AssetImage('assets/pubg.png'))),
-                        ),
-            ]),
+                            ));
+                          },
+                          child: ImageIcon(
+                            AssetImage('assets/img.png'),
+                            size: 19,
+                          )),
+                    ),),
+
+
+                ],
+              )
+              ]),
 
             //last navbar
             Container(
@@ -224,8 +243,8 @@ class Homepage extends StatelessWidget {
                     GButton(icon: Icons.settings),
                   ],
                 ))
-          ]),
-        ]),
+          ],
+        ),
       );
     });
   }
