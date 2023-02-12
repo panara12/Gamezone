@@ -19,8 +19,10 @@ class login extends StatelessWidget {
         body: Column(children: [
           Expanded(
               child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/login.png'))
+                ),
             padding: EdgeInsets.only(top: 20.h),
-            color: Colors.blue,
             child: Center(
               child: Text(
                 "Login",
@@ -33,7 +35,6 @@ class login extends StatelessWidget {
               flex: 2,
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
-                color: Colors.blue,
                 child: Container(
                   height: 15.h,
                   decoration: BoxDecoration(

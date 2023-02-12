@@ -63,7 +63,7 @@ class Startpage extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) {
-                              return Homepage();
+                              return HomePage();
                             },
                           ));
                         },

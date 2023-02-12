@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gamezone/login.dart';
 import 'package:gamezone/startpage.dart';
 
-import 'gamedetais.dart';
+import 'spiderdetails.dart';
 import 'home.dart';
 import 'new.dart';
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: New(),
+      home: Startpage(),
     );
   }
 }
