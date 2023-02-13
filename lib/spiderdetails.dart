@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:bottom_drawer/bottom_drawer.dart';
 
 class spiderdetails extends StatefulWidget {
   const spiderdetails({Key? key}) : super(key: key);
