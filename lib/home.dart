@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gamezone/login.dart';
 import 'package:gamezone/spiderdetails.dart';
 import 'package:gamezone/startpage.dart';
+import 'package:gamezone/witch.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import 'Captain.dart';
 
 class HomePage extends StatefulWidget{
@@ -24,7 +25,7 @@ class _HomeState extends State<HomePage> {
           child: Column(
             children: [
               Container(
-                width: 100.w,
+                width: 110.w,
                   child: Row(
                     children: [
                       Container(
@@ -50,17 +51,21 @@ class _HomeState extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(left: 15,top: 60),
-                        child: Icon(
-                          Icons.person_outline_sharp,
-                          size: 35,
+                        padding: EdgeInsets.only(left: 12,top: 60),
+                        child: IconButton(
+                          icon: Icon(Icons.person_outline_sharp,size: 33,),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return Login();
+                            },));
+                          },
                         ),
                       )
                     ],
                   )
               ),
               Container(
-                margin: EdgeInsets.only(top: 2.h),
+                margin: EdgeInsets.only(top: 4.h),
                 height: 5.h,
                 width: 85.w,
                 decoration: BoxDecoration(
@@ -88,6 +93,7 @@ class _HomeState extends State<HomePage> {
               //Top game
 
               Container(
+                margin: EdgeInsets.only(bottom: 1.h),
                 height: 7.h,
                 width: double.infinity,
                 child: Container(
@@ -117,7 +123,6 @@ class _HomeState extends State<HomePage> {
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
                           width: 60.w,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -128,11 +133,10 @@ class _HomeState extends State<HomePage> {
                           child: Column(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(top: 24.h,right: 1.w),
+                                margin: EdgeInsets.only(top: 24.h,),
                                 height: 9.h,
                                 width: 60.w,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   color: Colors.white70,
                                 ),
                                 child: Center(
@@ -141,12 +145,11 @@ class _HomeState extends State<HomePage> {
                                       Text('Marvel\'s Spider-Man\n Miles Morales'),
                                       Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),topRight: Radius.circular(10)),
                                           color: Colors.white
                                         ),
                                         child: IconButton(
                                          icon: Icon(Icons.shopping_basket_outlined), onPressed: () {},),
-                                        margin: EdgeInsets.only(left: 3),
+                                        margin: EdgeInsets.only(left: 2.8.w),
                                         width: 21.w,
                                         height: 9.h,
                                       )
@@ -169,7 +172,6 @@ class _HomeState extends State<HomePage> {
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
                           width: 60.w,
                           decoration: BoxDecoration(
                               color: Colors.orangeAccent,
@@ -181,11 +183,10 @@ class _HomeState extends State<HomePage> {
                           child: Column(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(top: 24.h,right: 1.w),
+                                margin: EdgeInsets.only(top: 24.h),
                                 height: 9.h,
                                 width: 60.w,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   color: Colors.white70,
                                 ),
                                 child: Center(
@@ -194,7 +195,6 @@ class _HomeState extends State<HomePage> {
                                         Text('Marvel\'s\n CaptainAmerica'),
                                         Container(
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),topRight: Radius.circular(10)),
                                               color: Colors.white
                                           ),
                                           child: IconButton(onPressed: () {
@@ -202,7 +202,7 @@ class _HomeState extends State<HomePage> {
                                               return spiderdetails();
                                             },));
                                           }, icon: Icon(Icons.shopping_basket_outlined)),
-                                          margin: EdgeInsets.only(left: 35),
+                                          margin: EdgeInsets.only(left: 11.3.w),
                                           width: 19.w,
                                           height: 9.h,
                                         )
@@ -220,12 +220,11 @@ class _HomeState extends State<HomePage> {
                       child: InkWell(
                         onTap: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                            return spiderdetails();
+                            return witchetails();
                           },));
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
                           width: 60.w,
                           decoration: BoxDecoration(
                               color: Colors.orangeAccent,
@@ -237,11 +236,10 @@ class _HomeState extends State<HomePage> {
                           child: Column(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(top: 24.h,right: 1.w),
+                                margin: EdgeInsets.only(top: 24.h),
                                 height: 9.h,
                                 width: 60.w,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   color: Colors.white70,
                                 ),
                                 child: Center(
@@ -250,11 +248,10 @@ class _HomeState extends State<HomePage> {
                                         Text('ClashRoyel Game \n Suppeshell'),
                                         Container(
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),topRight: Radius.circular(10)),
                                               color: Colors.white
                                           ),
                                           child: IconButton(onPressed: () => Startpage(), icon: Icon(Icons.shopping_basket_outlined)),
-                                          margin: EdgeInsets.only(left: 18),
+                                          margin: EdgeInsets.only(left: 6.7.w),
                                           width: 21.w,
                                           height: 9.h,
                                         )
@@ -277,7 +274,6 @@ class _HomeState extends State<HomePage> {
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
                           width: 60.w,
                           decoration: BoxDecoration(
                               color: Colors.orangeAccent,
@@ -289,11 +285,10 @@ class _HomeState extends State<HomePage> {
                           child: Column(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(top: 24.h,right: 1.w),
+                                margin: EdgeInsets.only(top: 24.h),
                                 height: 9.h,
                                 width: 60.w,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   color: Colors.white70,
                                 ),
                                 child: Center(
@@ -302,11 +297,10 @@ class _HomeState extends State<HomePage> {
                                       Text('Marvel\'s Spider-Man\n Miles Morales'),
                                       Container(
                                         decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),topRight: Radius.circular(10)),
                                             color: Colors.white
                                         ),
                                         child: IconButton(onPressed: () => Startpage(), icon: Icon(Icons.shopping_basket_outlined)),
-                                        margin: EdgeInsets.only(left: 3),
+                                        margin: EdgeInsets.only(left: 2.8.w),
                                         width: 21.w,
                                         height: 9.h,
                                       )
@@ -336,82 +330,95 @@ class _HomeState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: 14.h,
+                padding: EdgeInsets.only(top: 2.h),
+                height: 18.h,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(top: 1.h,bottom: 1.h,right: 1.h),
-                      child: InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
-                          width: 25.w,
-                          decoration: BoxDecoration(
-                              color: Colors.orangeAccent,
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage('assets/action.png'),
-                              )),
-                        ),
+                      child: Column(
+                        children: [
+                          InkWell(
+                            onTap: (){},
+                            child: Container(
+                              height: 10.h,
+                              margin: EdgeInsets.only(left: 4.w),
+                              padding: EdgeInsets.only(left: 1.w),
+                              width: 25.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                                  image: DecorationImage(image: AssetImage('assets/volly.png'),fit: BoxFit.fitWidth)
+                              ),
+                            ),
+                          ),
+                          Text('Sports')
+                        ],
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 1.h,bottom: 1.h,right: 1.h),
-                      child: InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
-                          width: 25.w,
-                          decoration: BoxDecoration(
-                              color: Colors.orangeAccent,
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage('assets/volly.png'),
-                              )),
-                        ),
+                      child: Column(
+                        children: [
+                          InkWell(
+                            onTap: (){},
+                            child: Container(
+                              height: 10.h,
+                              margin: EdgeInsets.only(left: 4.w),
+                              padding: EdgeInsets.only(left: 1.w),
+                              width: 25.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                                image: DecorationImage(image: AssetImage('assets/Gun.png'),fit: BoxFit.fitWidth)
+                              ),
+                            ),
+                          ),
+                          Text('FPS')
+                        ],
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 1.h,bottom: 1.h,right: 1.h),
-                      child: InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin: EdgeInsets.only(left: 4.w),
-                          padding: EdgeInsets.only(left: 1.w),
-                          width: 25.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage('assets/Gun.png'),
-                              )),
-                        ),
+                      child: Column(
+                        children: [
+                          InkWell(
+                            onTap: (){},
+                            child: Container(
+                              height: 10.h,
+                              margin: EdgeInsets.only(left: 4.w),
+                              padding: EdgeInsets.only(left: 1.w),
+                              width: 25.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                                  image: DecorationImage(image: AssetImage('assets/volly.png'),fit: BoxFit.fitWidth)
+                              ),
+                            ),
+                          ),
+                          Text('Sports')
+                        ],
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 1.h,bottom: 1.h,right: 1.h),
-                      child: InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin: EdgeInsets.only(left: 1.w),
-                          padding: EdgeInsets.only(left: 1.w),
-                          width: 25.w,
-                          decoration: BoxDecoration(
-                              color: Colors.orangeAccent,
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
-                              image: DecorationImage(
-                                fit: BoxFit.fitWidth,
-                                image: AssetImage('assets/spider.png'),
-                              )),
-                        ),
+                      child: Column(
+                        children: [
+                          InkWell(
+                            onTap: (){},
+                            child: Container(
+                              height: 10.h,
+                              margin: EdgeInsets.only(left: 4.w),
+                              padding: EdgeInsets.only(left: 1.w),
+                              width: 25.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                                  image: DecorationImage(image: AssetImage('assets/action.png'),fit: BoxFit.fitWidth)
+                              ),
+                            ),
+                          ),
+                          Text('Action')
+                        ],
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -420,8 +427,7 @@ class _HomeState extends State<HomePage> {
 
 
               Container(
-                padding: EdgeInsets.only(top: 50),
-                height: 15.h,
+                height: 8.h,
                 width: double.infinity,
 
                 child: Row(

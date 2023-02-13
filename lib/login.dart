@@ -1,71 +1,97 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gamezone/home.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class login extends StatelessWidget {
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return Scaffold(
-        backgroundColor: Colors.blue,
-        // appBar: AppBar(
-        //   elevation: 0,
-        //   centerTitle: true,
-        //   title: Text(
-        //     "Login",
-        //     style: TextStyle(fontSize: 18.sp, fontFamily: "Nunito"),
-        //   ),
-        // ),
-        body: Column(children: [
-          Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('assets/login.png'))
-                ),
-            padding: EdgeInsets.only(top: 20.h),
-            child: Center(
-              child: Text(
-                "Login",
-                style: TextStyle(
-                    fontSize: 25.sp, color: Colors.white, fontFamily: "Nunito"),
+        body: Stack(
+          children: [
+            Container(
+              height: 100.h,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [
+                        Colors.black,
+                        Colors.grey,
+                      ],
+                      stops: [0.0, 1.0],
+                      begin: FractionalOffset.topCenter,
+                      end: FractionalOffset.bottomCenter,
+                      tileMode: TileMode.repeated
+                  )
               ),
             ),
-          )),
-          Expanded(
-              flex: 2,
+            Align(
+              alignment: Alignment.center,
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
-                child: Container(
-                  height: 15.h,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.sp)),
-                  child: SingleChildScrollView(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
-                      height: 50.h,
-                      width: double.infinity,
-                      child: Column(
-                        children: [
-                          Expanded(child: TextFormField()),
-                          Expanded(child: TextFormField()),
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {},
-                            child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.sp),
-                                    color: Colors.blue),
-                                child: Center(child: Text("Login"))),
-                          )),
-                        ],
+                margin: EdgeInsets.all(5.h),
+                color: Colors.white,
+                height: 50.h,
+                width: 75.w,
+                child: Column(children: [
+                  Text('Log In',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 5.h),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        labelStyle: TextStyle(
+                          fontWeight: FontWeight.w600
+                        ),
+                        hintText: 'abc@gmail.com',
+                        border: OutlineInputBorder()
                       ),
                     ),
                   ),
-                ),
-              ))
-        ]),
+                  Container(
+                    padding: EdgeInsets.only(top: 5.h),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: 'Password',
+                          labelStyle: TextStyle(
+                              fontWeight: FontWeight.w600
+                          ),
+                          hintText: 'w2E%rf34w',
+                          border: OutlineInputBorder()
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 2.h),
+                    child: TextButton(onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                          return HomePage();
+                        },));
+                    },
+                        child: Text('Enter',style: TextStyle(
+                          color: Colors.white
+                        ),),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(Colors.black38)
+                        ),
+                    ),
+                  )
+                ]),
+              ),
+            )
+          ],
+        ),
       );
     });
   }
