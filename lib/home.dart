@@ -44,7 +44,7 @@ class _HomeState extends State<HomePage> {
                                     ]))),
                       ),
                       Container(
-                        padding: EdgeInsets.only(left: 15.h,top: 60),
+                        padding: EdgeInsets.only(left: 13.h,top: 60),
                         child: Icon(
                           Icons.notification_add_outlined,
                           size: 30,
@@ -436,12 +436,12 @@ class _HomeState extends State<HomePage> {
                     Container(
                       height: 5.h,
                       child: CircleAvatar(
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.white,
                         child: Center(
                           child: IconButton(
                             icon: Icon(
                               Icons.videogame_asset,
-                              color: Colors.white,
+                              color: Colors.black,
                             ), onPressed: () {},
                           ),
                         ),
