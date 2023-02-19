@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone/login.dart';
+import 'package:gamezone/logsign/login.dart';
 import 'package:gamezone/startpage.dart';
+
+import 'logsign/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: Signup(),
     );
   }
 }

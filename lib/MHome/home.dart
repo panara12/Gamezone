@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone/login.dart';
-import 'package:gamezone/spiderdetails.dart';
+import 'package:gamezone/logsign/login.dart';
+import 'package:gamezone/MHome/spiderdetails.dart';
 import 'package:gamezone/startpage.dart';
-import 'package:gamezone/witch.dart';
+import 'package:gamezone/MHome/witch.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'Captain.dart';
 

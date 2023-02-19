@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'home.dart';
+import 'MHome/home.dart';
 
 class Startpage extends StatelessWidget {
   const Startpage({Key? key}) : super(key: key);
