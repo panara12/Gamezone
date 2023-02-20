@@ -3,6 +3,7 @@ import 'package:gamezone/logsign/login.dart';
 import 'package:gamezone/startpage.dart';
 
 import 'logsign/signup.dart';
+import 'new.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Signup(),
+      home: Startpage(),
     );
   }
 }

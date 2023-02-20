@@ -20,15 +20,15 @@ class Startpage extends StatelessWidget {
               indicatorBackgroundColor: Colors.white38,
               children: [
                 Image.asset(
-                  'assets/squid.png',
+                  'assets/imgs/squid.png',
                   fit: BoxFit.fitWidth,
                 ),
                 Image.asset(
-                  'assets/pubg.png',
+                  'assets/imgs/pubg.png',
                   fit: BoxFit.fitHeight,
                 ),
                 Image.asset(
-                  'assets/witch.png',
+                  'assets/imgs/witch.png',
                   fit: BoxFit.fitWidth,
                 ),
               ],

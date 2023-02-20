@@ -12,7 +12,6 @@ class New extends StatefulWidget {
 }
 
 class _NewState extends State<New> {
-
   late Loginmodel model;
 
   @override
@@ -52,20 +51,19 @@ class _NewState extends State<New> {
                   ),
                 ],
               ),
-              items: snapshot.data
-                  ?.map((item) =>
-                  DropdownMenuItem<Loginmodel>(
-                    value: item,
-                    child: Text(
-                      item.Emails,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ))
+              items: snapshot.data!
+                  .map((item) => DropdownMenuItem<Loginmodel>(
+                        value: item,
+                        child: Text(
+                          item.Emails.toString(),
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ))
                   .toList(),
               value: model,
               onChanged: (value) {
@@ -105,12 +103,12 @@ class _NewState extends State<New> {
               scrollbarAlwaysShow: true,
               offset: const Offset(-20, 0),
             ),
-          );}
-        else {
+          );
+        } else {
           return Container();
         }
       },
       future: Userlist().GetDataFromUser(),
-      );
+    );
   }
 }

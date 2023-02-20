@@ -128,7 +128,7 @@ class _HomeState extends State<HomePage> {
                               borderRadius: BorderRadius.all(Radius.circular(15)),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage('assets/spider.png'),
+                                image: AssetImage('assets/imgs/spider.png'),
                               )),
                           child: Column(
                             children: [
@@ -178,7 +178,7 @@ class _HomeState extends State<HomePage> {
                               borderRadius: BorderRadius.all(Radius.circular(15)),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage('assets/Captain.png'),
+                                image: AssetImage('assets/imgs/Captain.png'),
                               )),
                           child: Column(
                             children: [
@@ -231,7 +231,7 @@ class _HomeState extends State<HomePage> {
                               borderRadius: BorderRadius.all(Radius.circular(15)),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage('assets/witch.png'),
+                                image: AssetImage('assets/imgs/witch.png'),
                               )),
                           child: Column(
                             children: [
@@ -280,7 +280,7 @@ class _HomeState extends State<HomePage> {
                               borderRadius: BorderRadius.all(Radius.circular(15)),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage('assets/spider.png'),
+                                image: AssetImage('assets/imgs/spider.png'),
                               )),
                           child: Column(
                             children: [
@@ -348,7 +348,7 @@ class _HomeState extends State<HomePage> {
                               width: 25.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(image: AssetImage('assets/volly.png'),fit: BoxFit.fitWidth)
+                                  image: DecorationImage(image: AssetImage('assets/imgs/volly.png'),fit: BoxFit.fitWidth)
                               ),
                             ),
                           ),
@@ -369,7 +369,7 @@ class _HomeState extends State<HomePage> {
                               width: 25.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                                image: DecorationImage(image: AssetImage('assets/Gun.png'),fit: BoxFit.fitWidth)
+                                image: DecorationImage(image: AssetImage('assets/imgs/Gun.png'),fit: BoxFit.fitWidth)
                               ),
                             ),
                           ),
@@ -390,7 +390,7 @@ class _HomeState extends State<HomePage> {
                               width: 25.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(image: AssetImage('assets/volly.png'),fit: BoxFit.fitWidth)
+                                  image: DecorationImage(image: AssetImage('assets/imgs/volly.png'),fit: BoxFit.fitWidth)
                               ),
                             ),
                           ),
@@ -411,7 +411,7 @@ class _HomeState extends State<HomePage> {
                               width: 25.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(image: AssetImage('assets/action.png'),fit: BoxFit.fitWidth)
+                                  image: DecorationImage(image: AssetImage('assets/imgs/action.png'),fit: BoxFit.fitWidth)
                               ),
                             ),
                           ),

@@ -23,7 +23,7 @@ class _GamesState extends State<spiderdetails> {
                 Container(
                     height: 190.w,
                     color: Colors.white,
-                    child: Image(image: AssetImage('assets/spider.png'),
+                    child: Image(image: AssetImage('assets/imgs/spider.png'),
                       width: 100.w,
                       fit: BoxFit.fitWidth,
                     )

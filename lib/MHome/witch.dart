@@ -22,7 +22,7 @@ class _GamesState extends State<witchetails> {
                 Container(
                     height: 190.w,
                     color: Colors.white,
-                    child: Image(image: AssetImage('assets/witch.png'),
+                    child: Image(image: AssetImage('assets/imgs/witch.png'),
                       width: 100.w,
                       fit: BoxFit.fitHeight,
                     )

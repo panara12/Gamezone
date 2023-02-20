@@ -22,7 +22,7 @@ class _GamesState extends State<Captaindetails> {
                 Container(
                     height: 190.w,
                     color: Colors.white,
-                    child: Image(image: AssetImage('assets/Captaindetails.png'),
+                    child: Image(image: AssetImage('assets/imgs/Captaindetails.png'),
                       width: 100.w,
                       fit: BoxFit.fitHeight,
                     )
