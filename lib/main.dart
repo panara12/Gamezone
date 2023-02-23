@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gamezone/api/listofuser.dart';
 import 'package:gamezone/logsign/login.dart';
 import 'package:gamezone/startpage.dart';
 
-import 'logsign/signup.dart';
+import 'api/apicall.dart';
+import 'api/userinfopage.dart';
 import 'new.dart';
 
 void main() {
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Startpage(),
+      home: Apicall(),
     );
   }
 }

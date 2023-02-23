@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gamezone/MHome/home.dart';
-import 'package:gamezone/logsign/signup.dart';
+import 'package:gamezone/api/apicall.dart';
 import 'package:gamezone/startpage.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -101,7 +101,7 @@ class _LoginState extends State<Login> {
                       children: [
                         Text('Don\'t have account ?'),
                         InkWell(
-                          onTap: () => Signup(),
+                          onTap: () => Apicall(),
                           child: Text('Sing Up?',style: TextStyle(
                             fontWeight: FontWeight.bold
                           ),
