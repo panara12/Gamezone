@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone/api/listofuser.dart';
+import 'package:gamezone/api/updateuser.dart';
 import 'package:gamezone/logsign/login.dart';
 import 'package:gamezone/startpage.dart';
 
+import 'MHome/home.dart';
 import 'api/apicall.dart';
-import 'api/userinfopage.dart';
+import 'api/newuser.dart';
+import 'logsign/myprofile.dart';
 import 'new.dart';
 
 void main() {
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Apicall(),
+      home: Startpage(),
     );
   }
 }

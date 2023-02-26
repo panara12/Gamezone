@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gamezone/api/apicall.dart';
 import 'package:gamezone/logsign/login.dart';
 import 'package:gamezone/MHome/spiderdetails.dart';
 import 'package:gamezone/startpage.dart';
 import 'package:gamezone/MHome/witch.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../api/newuser.dart';
+import '../logsign/myprofile.dart';
 import 'Captain.dart';
 
 class HomePage extends StatefulWidget{
@@ -440,9 +443,13 @@ class _HomeState extends State<HomePage> {
                         child: Center(
                           child: IconButton(
                             icon: Icon(
-                              Icons.videogame_asset,
+                              Icons.person,
                               color: Colors.black,
-                            ), onPressed: () {},
+                            ), onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                                return Myprofile();
+                              },));
+                          },
                           ),
                         ),
                       ),
@@ -455,9 +462,13 @@ class _HomeState extends State<HomePage> {
                         child: Center(
                           child: IconButton(
                             icon: Icon(
-                              Icons.wine_bar,
+                              Icons.add_circle,
                               color: Colors.black,
-                            ), onPressed: () {},
+                            ), onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                                return Apicall();
+                              },));
+                          },
                           ),
                         ),
                       ),
@@ -485,9 +496,13 @@ class _HomeState extends State<HomePage> {
                         child: Center(
                           child: IconButton(
                             icon: Icon(
-                              Icons.settings,
+                              Icons.add,
                               color: Colors.black,
-                            ), onPressed: () {},
+                            ), onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                                return Newuser();
+                              },));
+                          },
                           ),
                         ),
                       ),
@@ -500,7 +515,7 @@ class _HomeState extends State<HomePage> {
                         child: Center(
                           child: IconButton(
                             icon: Icon(
-                              Icons.sports_baseball,
+                              Icons.settings,
                               color: Colors.black,
                             ), onPressed: () {},
                           ),
