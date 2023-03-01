@@ -3,6 +3,7 @@ import 'package:gamezone/api/updateuser.dart';
 import 'package:gamezone/logsign/login.dart';
 import 'package:gamezone/startpage.dart';
 
+import 'Databasecall/databaseapicall.dart';
 import 'MHome/home.dart';
 import 'api/apicall.dart';
 import 'api/newuser.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Startpage(),
+      home: Databasecall(),
     );
   }
 }

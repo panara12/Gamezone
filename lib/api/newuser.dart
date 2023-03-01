@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:http/http.dart' as http;
 
-import 'apicall.dart';
-
 class Newuser extends StatefulWidget {
 
   @override
@@ -23,12 +21,11 @@ class _NewuserState extends State<Newuser> {
   var imgControler = TextEditingController();
 
 
-
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return Scaffold(
-        body: SafeArea(
+        body: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -42,26 +39,21 @@ class _NewuserState extends State<Newuser> {
                     ],
                     begin: FractionalOffset.topCenter,
                     end: FractionalOffset.bottomCenter,
-                    tileMode: TileMode.repeated)),
-
-            child: SingleChildScrollView(
+                    tileMode: TileMode.repeated)
+            ),
+            child: SafeArea(
               child: Column(
                 children: [
                   SizedBox(height: 10.h,),
+                  CircleAvatar(
+                    radius: 17.h,
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(imgControler.text),
+                  ),
                   Form(
                     key: formKey,
                     child: Column(
                       children: [
-                        Container(
-                          child: Center(
-                            child: Container(
-                              child: CircleAvatar(
-                                backgroundImage: NetworkImage(imgControler.text),
-                                radius: 17.h,
-                              ),
-                            ),
-                          ),
-                        ),
                         Container(
                           padding: EdgeInsets.only(top: 5.h,left: 2.w,right: 2.w),
                           child: Column(
@@ -87,10 +79,10 @@ class _NewuserState extends State<Newuser> {
                               ),
                               SizedBox(height: 2.h,),
                               TextFormField(
-                                decoration: InputDecoration(labelText: 'enter new img url'),
+                                decoration: InputDecoration(labelText: 'enter new img'),
                                 validator: (value) {
                                   if (value != null && value.isEmpty) {
-                                    return "enter valid url";
+                                    return "enter valid img";
                                   }
                                 },
                                 controller: imgControler,
@@ -113,7 +105,9 @@ class _NewuserState extends State<Newuser> {
                                     ),
                                     onPressed: () {
                                       if (formKey.currentState!.validate()) {
-                                        insertUser().then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Apicall()),));
+                                        var img = imgControler;
+                                        print(img);
+                                        insertUser().then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Newuser()),));
                                       }
                                     },
                                     child: Text('submit',style: TextStyle(color: Colors.white,fontSize: 18.sp),)),
@@ -143,4 +137,6 @@ class _NewuserState extends State<Newuser> {
     print(imgControler.text);
     print(response1.body);
   }
+
 }
+

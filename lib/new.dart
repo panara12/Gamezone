@@ -1,114 +1,136 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gamezone/database.dart';
-import 'package:gamezone/model/model.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:http/http.dart' as http;
 
-class New extends StatefulWidget {
-  const New({Key? key}) : super(key: key);
+class Newapi extends StatefulWidget {
+  const Newapi({Key? key}) : super(key: key);
 
   @override
-  State<New> createState() => _NewState();
+  State<Newapi> createState() => _NewapiState();
 }
 
-class _NewState extends State<New> {
-  late Loginmodel model;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _NewapiState extends State<Newapi> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Loginmodel>>(
-      builder: (context, snapshot) {
-        if (snapshot.hasData && snapshot.data != null) {
-          model = snapshot.data![0];
-          return DropdownButtonHideUnderline(
-            child: DropdownButton2(
-              isExpanded: true,
-              hint: Row(
-                children: const [
-                  Icon(
-                    Icons.list,
-                    size: 16,
-                    color: Colors.yellow,
-                  ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Expanded(
-                    child: Text(
-                      'Select Item',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.yellow,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-              items: snapshot.data!
-                  .map((item) => DropdownMenuItem<Loginmodel>(
-                        value: item,
-                        child: Text(
-                          item.Emails.toString(),
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                          overflow: TextOverflow.ellipsis,
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return Scaffold(
+          body: Container(
+              child: FutureBuilder<http.Response>(
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Stack(
+              children: [
+                ListView.builder(
+                  itemCount: jsonDecode(snapshot.data!.body.toString()).length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                        child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 4.w),
+                          width: 60.w,
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(jsonDecode(
+                                        snapshot.data!.body.toString())[index]
+                                    ["img"]),
+                              )),
                         ),
-                      ))
-                  .toList(),
-              value: model,
-              onChanged: (value) {
-                setState(() {
-                  model = value!;
-                });
-              },
-              icon: const Icon(
-                Icons.arrow_forward_ios_outlined,
-              ),
-              iconSize: 14,
-              iconEnabledColor: Colors.yellow,
-              iconDisabledColor: Colors.grey,
-              buttonHeight: 50,
-              buttonWidth: 160,
-              buttonPadding: const EdgeInsets.only(left: 14, right: 14),
-              buttonDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(
-                  color: Colors.black26,
+                        Container(
+                          margin: EdgeInsets.only(
+                            top: 24.h,
+                          ),
+                          height: 9.h,
+                          width: 60.w,
+                          decoration: BoxDecoration(
+                            color: Colors.white70,
+                          ),
+                          child: Center(
+                              child: Row(
+                            children: [
+                              Text((jsonDecode(snapshot.data!.body.toString())[
+                                      index]["Name"])
+                                  .toString()),
+                              Container(
+                                decoration: BoxDecoration(color: Colors.white),
+                                child: IconButton(
+                                  icon: Icon(Icons.delete),
+                                  onPressed: () {
+                                    showDeleteAlert(jsonDecode(snapshot
+                                        .data!.body
+                                        .toString())[index]['id']);
+                                  },
+                                ),
+                                margin: EdgeInsets.only(left: 2.8.w),
+                                width: 21.w,
+                                height: 9.h,
+                              )
+                            ],
+                          )),
+                        ),
+                      ],
+                    ));
+                  },
                 ),
-                color: Colors.redAccent,
-              ),
-              buttonElevation: 2,
-              itemHeight: 40,
-              itemPadding: const EdgeInsets.only(left: 14, right: 14),
-              dropdownMaxHeight: 200,
-              dropdownWidth: 200,
-              dropdownPadding: null,
-              dropdownDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                color: Colors.redAccent,
-              ),
-              dropdownElevation: 8,
-              scrollbarRadius: const Radius.circular(40),
-              scrollbarThickness: 6,
-              scrollbarAlwaysShow: true,
-              offset: const Offset(-20, 0),
+              ],
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        },
+        future: getDatafromserver(),
+      )));
+    });
+  }
+
+  Future<http.Response> getDatafromserver() async {
+    var response = await http.get(
+        Uri.parse('https://6317993682797be77f012c87.mockapi.io/SmartPhones'));
+    print('response ::: $response');
+    print(response.body);
+    return response;
+  }
+
+  Future<http.Response> DeleteUser(id) async {
+    var response = await http.delete(Uri.parse(
+        'https://6317993682797be77f012c87.mockapi.io/SmartPhones/$id'));
+    return response;
+  }
+
+  void showDeleteAlert(id) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Alert!'),
+          content: Text('are you want remove user from list?'),
+          actions: [
+            TextButton(
+              onPressed: () async {
+                http.Response res = await DeleteUser(id);
+                if (res.statusCode == 200) {
+                  setState(() {});
+                }
+                Navigator.of(context).pop();
+              },
+              child: Text('Yes'),
             ),
-          );
-        } else {
-          return Container();
-        }
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('NO'),
+            )
+          ],
+        );
       },
-      future: Userlist().GetDataFromUser(),
     );
   }
 }

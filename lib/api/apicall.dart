@@ -124,6 +124,7 @@ class ApicallState extends State<Apicall> {
                                   child: Icon(
                                     Icons.delete_outline_outlined,
                                     color: Colors.white,
+                                    size: 25,
                                   ),
                                   onTap: () {
                                     showDeleteAlert(jsonDecode(
